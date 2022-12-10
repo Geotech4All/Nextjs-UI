@@ -13,7 +13,8 @@ module.exports = {
             60: "#ff7aa2",
             50: "#ff9ebb",
             40: "#ffc2d4",
-            30: "#ffe0e9"
+            30: "#ffe0e9",
+            20: "#FFF1F5"
           }
         }
       }

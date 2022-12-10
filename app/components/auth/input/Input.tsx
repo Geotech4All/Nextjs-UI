@@ -4,6 +4,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   label?: string;
   name?: string;
+  // taype?: React.HTMLInputTypeAttribute
 }
 
 const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProps>(
@@ -17,7 +18,6 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
           className="bg-transparent peer w-full placeholder:italic outline-none"
           ref={ref}
           {...rest}
-          type="text"
         />
         <label
           htmlFor={name}

@@ -19,7 +19,9 @@
       "@utils/*": ["utils/*"],
       "@app/*": ["app/*"],
       "@components/*": ["app/components/*"],
-      "@layouts/*": ["app/layouts/*"]
+      "@layouts/*": ["app/layouts/*"],
+      "@gql/*": ["utils/graphql/*"],
+      "@store/*": ["utils/store/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

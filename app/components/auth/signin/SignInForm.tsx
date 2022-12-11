@@ -1,11 +1,46 @@
 import React from "react";
-import { Input, AuthForm, SubmitButton } from "@components/index";
+import { Input, AuthForm, SubmitButton, Password, ErrorList } from "@app/components";
+import type { NonFieldErrors } from "@app/components";
+import { adminLogin } from "pages/api/auth";
+import { loginAdmin } from "@utils/graphql/hooks/auth";
+import { useAppDispatch } from "@utils/store/hooks";
+import { useRouter } from "next/router";
+import { ErrorType } from "@utils/graphql/codegen/graphql";
 
 const SignInForm: React.FC = () => {
+  const emailRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+  const passwordRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+  const [errors, setErrors] = React.useState<NonFieldErrors | ErrorType[]>();
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+
+  const submitHandler: React.FormEventHandler = (event) => {
+    event.preventDefault();
+    if (emailRef.current.value !== "" && passwordRef.current.value !== "") {
+      void adminLogin({ email: emailRef.current.value, password: passwordRef.current.value }).then(
+        function (resp) {
+          if (resp.success === true) {
+            loginAdmin(dispatch, resp);
+            void router.replace("/admin/dashboard");
+          } else {
+            setErrors(resp.errors);
+          }
+        }
+      );
+    }
+  };
+
   return (
-    <AuthForm message="Welcome Back 🥳">
-      <Input placeholder="geotechling@gmail.com" label="Email" type="email" name="email" />
-      <Input placeholder="**********" type="password" label="Password" name="password" />
+    <AuthForm onSubmit={submitHandler} message="Welcome Back 🥳">
+      {errors != null && <ErrorList errors={errors} />}
+      <Input
+        ref={emailRef}
+        placeholder="geotechling@gmail.com"
+        label="Email"
+        type="email"
+        name="email"
+      />
+      <Password ref={passwordRef} placeholder="**********" label="Password" name="password" />
       <SubmitButton>Login</SubmitButton>
     </AuthForm>
   );

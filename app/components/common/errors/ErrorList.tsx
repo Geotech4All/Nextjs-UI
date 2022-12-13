@@ -31,7 +31,7 @@ const ErrorContainer: React.FC<ComponentType> = (props) => {
     <motion.ul
       initial={{ scale: 0.3 }}
       animate={{ scale: [1, 1.4, 1.4, 1, 1], transition: { duration: 0.8 } }}
-      className="bg-red-500/20 flex flex-col gap-3 p-4 border border-red-500/60 rounded-lg"
+      className="bg-red-500/20 flex flex-col gap-3 p-2.5 md:p-3 border border-red-500/60 rounded-lg"
     >
       {props.children}
     </motion.ul>

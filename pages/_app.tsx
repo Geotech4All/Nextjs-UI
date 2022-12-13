@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ApolloProvider client={client}>
       <ReduxProvider store={store}>
-        <main className="min-w-screen min-h-screen flex items-center justify-center">
+        <main className="min-w-screen text-xs md:text-base min-h-screen flex items-center justify-center">
           <Component {...pageProps} />
         </main>
       </ReduxProvider>

@@ -11,10 +11,10 @@ const AuthForm: React.FC<AuthFormProps> = (props) => {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex flex-col bg-ui-pink-20 w-full max-w-[50rem] gap-2 p-3 rounded-3xl"
+      className="flex flex-col bg-ui-pink-20 w-full max-w-[50rem] gap-2 p-1.5 md:p-3 rounded-xl md:rounded-3xl"
       action=""
     >
-      <legend className="bg-white p-4 flex item-center py-9 justify-center text-2xl font-bold text-black/50 rounded-xl">
+      <legend className="bg-white p-4 flex item-center py-5 justify-center text-xl md:text-2xl font-bold text-black/50 rounded-xl">
         {message}
       </legend>
       {children}

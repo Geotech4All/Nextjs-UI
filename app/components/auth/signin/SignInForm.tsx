@@ -46,13 +46,20 @@ const SignInForm: React.FC = () => {
       <AuthForm onSubmit={submitHandler} message="Welcome Back 🥳">
         {errors != null && <ErrorList errors={errors} />}
         <Input
+          required
           ref={emailRef}
           placeholder="geotechling@gmail.com"
           label="Email"
           type="email"
           name="email"
         />
-        <Password ref={passwordRef} placeholder="**********" label="Password" name="password" />
+        <Password
+          required
+          ref={passwordRef}
+          placeholder="**********"
+          label="Password"
+          name="password"
+        />
         <SubmitButton>Login</SubmitButton>
       </AuthForm>
     </>

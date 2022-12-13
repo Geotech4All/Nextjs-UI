@@ -1,5 +1,12 @@
 import React from "react";
-import { Input, AuthForm, SubmitButton, Password, ErrorList, PageWaterLoader } from "@app/components";
+import {
+  Input,
+  AuthForm,
+  SubmitButton,
+  Password,
+  ErrorList,
+  PageWaterLoader
+} from "@app/components";
 import type { NonFieldErrors } from "@app/components";
 import { adminLogin } from "pages/api/auth";
 import { loginAdmin } from "@utils/graphql/hooks/auth";
@@ -16,9 +23,9 @@ const SignInForm: React.FC = () => {
   const router = useRouter();
 
   const submitHandler: React.FormEventHandler = (event) => {
-    setLoading(true);
     event.preventDefault();
     if (emailRef.current.value !== "" && passwordRef.current.value !== "") {
+      setLoading(true);
       void adminLogin({ email: emailRef.current.value, password: passwordRef.current.value }).then(
         (resp) => {
           if (resp.success === true) {

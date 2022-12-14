@@ -7,7 +7,7 @@ import { useAppDispatch } from "@utils/store/hooks";
 import { setPocastList } from "@utils/store/slices/podcastListSlice";
 
 const AdminDashBoard: NextPageWithLayout = () => {
-  const { loading, data, error } = useAllPodcasts();
+  const { loading, data } = useAllPodcasts();
   const dispatch = useAppDispatch();
   React.useEffect(() => {
     if (data !== null && data !== undefined) {

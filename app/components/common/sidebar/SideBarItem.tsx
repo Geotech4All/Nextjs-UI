@@ -26,7 +26,7 @@ const SideBarItem: React.FC<SideBarItemProps> = (props) => {
     >
       <div
         title={route.name}
-        className={`${active ? "bg-ui-pink-30 shadow" : ""} ${
+        className={`${active ? "bg-ui-pink-30/50 shadow" : ""} ${
           !currPage.sideOpen ? "aspect-square" : ""
         }
         flex gap-2 text-md items-center p-3 hover:scale-105 transition-all rounded-full text-gray-900/90`}

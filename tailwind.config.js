@@ -3,6 +3,9 @@ module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      boxShadow: {
+        mid: "inset 0 0 10px rgba(0, 0, 0, 0.1);"
+      },
       colors: {
         ui: {
           pink: {

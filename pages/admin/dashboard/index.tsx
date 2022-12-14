@@ -19,7 +19,7 @@ const AdminDashBoard: NextPageWithLayout = () => {
     return <PageWaterLoader />;
   }
   return (
-    <div>
+    <div className="p-3 flex w-full justify-start">
       <RecentPodcasts />
     </div>
   );

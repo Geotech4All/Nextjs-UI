@@ -8,6 +8,7 @@ import type { ErrorListType, NonFieldErrors } from "@components/common/errors/Er
 import Error from "@components/common/errors/Error";
 import PageWaterLoader from "@app/components/common/loading/PageWaterLoader";
 import RecentPodcasts from "@app/components/podcast/dashboard/recent_podcasts/RecentPodcasts";
+import PodcastCard from "@app/components/podcast/dashboard/recent_podcasts/PodcastCard";
 
 export {
   AuthForm,
@@ -19,6 +20,7 @@ export {
   ErrorList,
   Error,
   PageWaterLoader,
-  RecentPodcasts
+  RecentPodcasts,
+  PodcastCard
 };
 export type { ErrorListType, NonFieldErrors };

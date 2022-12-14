@@ -42,15 +42,10 @@ const AuthLayout: React.FC<AuthLayoutProps> = (props) => {
   }, []);
 
   const { children } = props;
-  if (authenticating) {
+  if (authenticating || loading) {
     return <PageWaterLoader />;
   }
-  return (
-    <>
-      {loading && <PageWaterLoader />}
-      {children}
-    </>
-  );
+  return <main className="flex min-w-[100vw] min-h-screen flex-col">{children}</main>;
 };
 
 export default AuthLayout;

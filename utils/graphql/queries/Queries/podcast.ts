@@ -11,6 +11,7 @@ export const ALL_PODCASTS = gql`
           host {
             id
             fullName
+            email
           }
         }
       }

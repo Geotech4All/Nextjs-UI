@@ -1,13 +1,14 @@
 import { useAppSelector } from "@utils/store/hooks";
 import { selectPodcasts } from "@utils/store/slices/podcastListSlice";
 import React from "react";
+import PodcastCard from "./PodcastCard";
 
 const RecentPodcasts: React.FC = () => {
   const podcasts = useAppSelector(selectPodcasts);
   return (
-    <ul>
+    <ul className="flex gap-5 flex-nowrap overflow-x-auto">
       {podcasts.map((podcast) => (
-        <h1 key={Math.random()}>{podcast.node?.title}</h1>
+        <PodcastCard key={Math.random()} podcast={podcast} />
       ))}
     </ul>
   );

@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import adminUserReducer from "@store/slices/adminUserSlice";
 import podcastListReducer from "@store/slices/podcastListSlice";
+import adminPageReducer from "@store/slices/adminPageSlice";
 
 export const store = configureStore({
   reducer: {
     adminUser: adminUserReducer,
-    podcasts: podcastListReducer
+    podcasts: podcastListReducer,
+    adminPage: adminPageReducer
   }
 });
 

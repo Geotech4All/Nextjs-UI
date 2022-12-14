@@ -9,6 +9,11 @@ import Error from "@components/common/errors/Error";
 import PageWaterLoader from "@app/components/common/loading/PageWaterLoader";
 import RecentPodcasts from "@app/components/podcast/dashboard/recent_podcasts/RecentPodcasts";
 import PodcastCard from "@app/components/podcast/dashboard/recent_podcasts/PodcastCard";
+import SideBar from "@app/components/common/sidebar/SideBar";
+import SideBarItem from "@app/components/common/sidebar/SideBarItem";
+import SideBarItems from "@app/components/common/sidebar/SideBarItems";
+import type { NavRouteType } from "@app/components/common/sidebar/navRoutes";
+import navRotues from "@app/components/common/sidebar/navRoutes";
 
 export {
   AuthForm,
@@ -21,6 +26,10 @@ export {
   Error,
   PageWaterLoader,
   RecentPodcasts,
-  PodcastCard
+  PodcastCard,
+  SideBar,
+  SideBarItem,
+  SideBarItems,
+  navRotues
 };
-export type { ErrorListType, NonFieldErrors };
+export type { ErrorListType, NonFieldErrors, NavRouteType };

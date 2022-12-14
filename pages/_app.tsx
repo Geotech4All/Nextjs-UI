@@ -5,13 +5,23 @@ import type { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "@utils/graphql/config";
 import { store } from "@store/config";
+import { NextPage } from "next";
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
+  const getLayout = Component.getLayout ?? ((page) => page);
   return (
     <ApolloProvider client={client}>
       <ReduxProvider store={store}>
         <main className="min-w-screen text-xs md:text-base min-h-screen flex items-center justify-center">
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />)}
         </main>
       </ReduxProvider>
     </ApolloProvider>

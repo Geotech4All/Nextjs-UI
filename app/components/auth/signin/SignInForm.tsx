@@ -26,17 +26,18 @@ const SignInForm: React.FC = () => {
     event.preventDefault();
     if (emailRef.current.value !== "" && passwordRef.current.value !== "") {
       setLoading(true);
-      void adminLogin({ email: emailRef.current.value, password: passwordRef.current.value }).then(
-        (resp) => {
-          if (resp.success === true) {
-            loginAdmin(dispatch, resp);
-            void router.replace("/admin/dashboard");
-          } else {
-            setLoading(false);
-            setErrors(resp.errors);
-          }
+      void adminLogin({
+        email: emailRef.current.value,
+        password: passwordRef.current.value
+      }).then((resp) => {
+        if (resp.success === true) {
+          loginAdmin(dispatch, resp);
+          void router.replace("/admin/dashboard");
+        } else {
+          setLoading(false);
+          setErrors(resp.errors);
         }
-      );
+      });
     }
   };
 

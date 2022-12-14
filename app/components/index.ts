@@ -7,6 +7,7 @@ import ErrorList from "@components/common/errors/ErrorList";
 import type { ErrorListType, NonFieldErrors } from "@components/common/errors/ErrorList";
 import Error from "@components/common/errors/Error";
 import PageWaterLoader from "@app/components/common/loading/PageWaterLoader";
+import RecentPodcasts from "@app/components/podcast/dashboard/recent_podcasts/RecentPodcasts";
 
 export {
   AuthForm,
@@ -17,6 +18,7 @@ export {
   TopWave,
   ErrorList,
   Error,
-  PageWaterLoader
+  PageWaterLoader,
+  RecentPodcasts
 };
 export type { ErrorListType, NonFieldErrors };

@@ -1,10 +1,13 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { PageWaterLoader } from "@app/components";
 
 const Admin: React.FC = () => {
   const router = useRouter();
-  void router.replace("/admin/dashboard");
-  return <div>Admin</div>;
+  React.useEffect(() => {
+    void router.replace("/admin/dashboard");
+  }, []);
+  return <PageWaterLoader />;
 };
 
 export default Admin;

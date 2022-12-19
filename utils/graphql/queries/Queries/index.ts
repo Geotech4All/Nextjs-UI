@@ -1,3 +1,3 @@
-import { ALL_PODCASTS } from "@gql/queries/Queries/podcast";
+import { ALL_PODCASTS, STAFF_LIST } from "@gql/queries/Queries/podcast";
 
-export { ALL_PODCASTS };
+export { ALL_PODCASTS, STAFF_LIST };

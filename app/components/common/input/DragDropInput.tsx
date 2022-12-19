@@ -1,13 +1,17 @@
 import React from "react";
+import { FaRegFileAudio } from "react-icons/fa";
 
 interface DragDropFileProps {
   prompt?: string;
   name: string;
   getFile: (file: File) => void;
+  hasFile: boolean;
+  fileName?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 const DragDropFile = React.forwardRef<HTMLInputElement, DragDropFileProps>((props, ref) => {
   const [dragActive, setDragActive] = React.useState(false);
-  const { name, prompt, getFile } = props;
+  const { name, prompt, getFile, hasFile, fileName, onChange } = props;
 
   const handleDrop: React.DragEventHandler = (event) => {
     event.preventDefault();
@@ -39,31 +43,44 @@ const DragDropFile = React.forwardRef<HTMLInputElement, DragDropFileProps>((prop
           onDrop={handleDrop}
         />
       )}
-      <div onDragEnter={handleDrag} className="w-full p-2 px-3">
-        <input
-          ref={ref}
-          onDrop={handleDrop}
-          className="hidden"
-          id={name}
-          type="file"
-          accept="audio/*"
-        />
-        <label
-          className={`
-            ${dragActive ? "border-ui-pink-50" : "border-black/10"}
-            border-2 flex rounded-md items-center
-            transition-all bg-ui-pink-20/60 w-full
-            justify-center p-4 border-dashed`}
-          htmlFor={name}
-        >
-          <div className="w-full text-black/60 flex items-center justify-center flex-col">
-            <p>{prompt}</p>
-            <button className="hover:underline transition-all cursor-pointer text-lg" type="button">
-              Upload File
-            </button>
+      {hasFile ? (
+        <div className="border gap-2 rounded-md flex flex-col items-center p-3">
+          <div className="text-[4rem]">
+            <FaRegFileAudio />
           </div>
-        </label>
-      </div>
+          <p>{fileName}</p>
+        </div>
+      ) : (
+        <div onDragEnter={handleDrag} className="w-full p-2 px-3">
+          <input
+            onChange={onChange}
+            ref={ref}
+            onDrop={handleDrop}
+            className="hidden"
+            id={name}
+            type="file"
+            accept="audio/*"
+          />
+          <label
+            className={`
+              ${dragActive ? "border-ui-pink-50" : "border-black/10"}
+              border-2 flex rounded-md items-center
+              transition-all bg-ui-pink-20/60 w-full
+              justify-center p-4 border-dashed`}
+            htmlFor={name}
+          >
+            <div className="w-full text-black/60 flex items-center justify-center flex-col">
+              <p>{prompt}</p>
+              <label
+                htmlFor={name}
+                className="hover:underline transition-all cursor-pointer text-lg"
+              >
+                Upload File
+              </label>
+            </div>
+          </label>
+        </div>
+      )}
     </div>
   );
 });

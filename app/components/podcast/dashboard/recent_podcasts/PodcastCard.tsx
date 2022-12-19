@@ -15,7 +15,7 @@ const PodcastCard: React.FC<PodcastCardProps> = (props) => {
       className={`
       shadow-mid text-white font-semibold
       flex flex-col overflow-hidden
-      max-w-sm md:min-w-[35rem]  aspect-video rounded-3xl`}
+      max-w-sm md:min-w-[25rem]  aspect-video rounded-3xl`}
     >
       <div className="p-4 flex flex-1 justify-between bg-purple-500">
         <address className="bg-white/50 h-fit p-0.5 rounded not-italic px-2">

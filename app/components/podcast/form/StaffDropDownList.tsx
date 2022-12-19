@@ -8,7 +8,11 @@ export interface StaffDropDownContextType {
   staff?: StaffType;
   setStaff: React.Dispatch<React.SetStateAction<StaffType | undefined>>;
 }
-const StaffDropDownList: React.FC = () => {
+interface StaffDropDownListProps {
+  getHost: (host: StaffType) => void;
+}
+const StaffDropDownList: React.FC<StaffDropDownListProps> = (props) => {
+  const { getHost } = props;
   const { data, loading } = useStaffList();
   const [dropdownOpen, setDropDownOpen] = React.useState(true);
   const [staff, setStaff] = React.useState<StaffType>();
@@ -19,6 +23,12 @@ const StaffDropDownList: React.FC = () => {
 
   const StaffCtx = React.createContext<StaffDropDownContextType>(defVall);
   const staffContext = React.useContext(StaffCtx);
+
+  React.useEffect(() => {
+    if (staffContext.staff !== undefined) {
+      getHost(staffContext.staff);
+    }
+  }, [staffContext]);
 
   const placeholder = staffContext.staff?.user?.fullName ?? staffContext.staff?.user?.email;
 
@@ -37,7 +47,9 @@ const StaffDropDownList: React.FC = () => {
   return (
     <StaffCtx.Provider value={defVall}>
       <div className="rounded-lg p-1 gap-1 flex flex-col">
+        <label htmlFor="staff_list">Host</label>
         <button
+          id="staff_list"
           onClick={handleDropDown}
           type="button"
           className={`

@@ -36,6 +36,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, FormInputProps>((p
   return (
     <div className="flex flex-col-reverse rounded p-3 w-full">
       <textarea
+        ref={ref}
         {...others}
         rows={rows}
         className={`

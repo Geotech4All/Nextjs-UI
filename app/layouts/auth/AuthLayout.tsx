@@ -51,7 +51,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = (props) => {
   }
   return (
     <motion.main
-      animate={{ marginLeft: adminPage.sideOpen ? 165 : 80 }}
+      animate={{ marginLeft: adminPage.sideOpen ? 170 : 90 }}
       className="flex w-full min-h-screen flex-col"
     >
       {children}

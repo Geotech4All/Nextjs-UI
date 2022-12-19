@@ -1,9 +1,10 @@
+import { PodcastForm } from "@app/components";
 import { getAdminLayout } from "@app/layouts/hooks";
 import { NextPageWithLayout } from "pages/_app";
 import React from "react";
 
 const PodcastPage: NextPageWithLayout = () => {
-  return <h1>You have reached the podcast page. Coming Soon!!!</h1>;
+  return <PodcastForm />;
 };
 
 PodcastPage.getLayout = getAdminLayout;

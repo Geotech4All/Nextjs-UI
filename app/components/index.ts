@@ -14,6 +14,11 @@ import SideBarItem from "@app/components/common/sidebar/SideBarItem";
 import SideBarItems from "@app/components/common/sidebar/SideBarItems";
 import type { NavRouteType } from "@app/components/common/sidebar/navRoutes";
 import navRotues from "@app/components/common/sidebar/navRoutes";
+import PodcastForm from "@app/components/auth/podcast/PodcastForm";
+import FormInput, { TextArea } from "@app/components/common/input/FormInput";
+import PodcastFormButton from "@app/components/common/buttons/PodcastButton";
+import DragDropFile from "@app/components/common/input/DragDropInput";
+import AudioThumbnail from "@app/components/common/thumbnails/AudioThumbnail";
 
 export {
   AuthForm,
@@ -30,6 +35,12 @@ export {
   SideBar,
   SideBarItem,
   SideBarItems,
-  navRotues
+  navRotues,
+  PodcastForm,
+  FormInput,
+  TextArea,
+  PodcastFormButton,
+  DragDropFile,
+  AudioThumbnail
 };
 export type { ErrorListType, NonFieldErrors, NavRouteType };

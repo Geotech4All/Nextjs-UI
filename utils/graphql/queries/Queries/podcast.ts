@@ -8,6 +8,7 @@ export const ALL_PODCASTS = gql`
           title
           dateAdded
           podcastId
+          description
           host {
             id
             fullName
@@ -21,6 +22,20 @@ export const ALL_PODCASTS = gql`
         startCursor
         endCursor
       }
+    }
+  }
+`;
+
+export const STAFF_LIST = gql`
+  query GetStaffList {
+    staffList {
+      id
+      staffId
+      user {
+        id
+        email
+      }
+      canCreatePost
     }
   }
 `;

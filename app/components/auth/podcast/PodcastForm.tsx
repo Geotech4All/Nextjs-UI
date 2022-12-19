@@ -1,4 +1,4 @@
-import { DragDropFile, FormInput, TextArea } from "@app/components";
+import { DragDropFile, FormInput, PodcastFormButton, StaffDropDownList, TextArea } from "@app/components";
 import React from "react";
 
 const PodcastForm: React.FC = () => {
@@ -10,8 +10,8 @@ const PodcastForm: React.FC = () => {
   console.log(podcast);
   return (
     <form className="bg-ui-pink-20/40 relative rounded focus-within:shadow-lg">
-      <div>
-        <fieldset>
+      <div className="flex flex-col p-1 md:flex-row w-full">
+        <fieldset className="w-full">
           <FormInput title="Podcast title" name="title" label="Title" />
           <TextArea
             name="description"
@@ -20,8 +20,12 @@ const PodcastForm: React.FC = () => {
             label="Description"
           />
         </fieldset>
+        <fieldset className="w-full">
+          <StaffDropDownList />
+        </fieldset>
       </div>
       <DragDropFile getFile={getPodcast} name="podcast" prompt="Drag and drop audio or" />
+      <PodcastFormButton>Save</PodcastFormButton>
     </form>
   );
 };

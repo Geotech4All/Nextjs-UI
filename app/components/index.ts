@@ -19,6 +19,9 @@ import FormInput, { TextArea } from "@app/components/common/input/FormInput";
 import PodcastFormButton from "@app/components/common/buttons/PodcastButton";
 import DragDropFile from "@app/components/common/input/DragDropInput";
 import AudioThumbnail from "@app/components/common/thumbnails/AudioThumbnail";
+import StaffDropDownList from "@app/components/podcast/form/StaffDropDownList";
+import StaffDropDownItem from "@app/components/podcast/form/StaffDropDownItem";
+import type { StaffDropDownContextType } from "@app/components/podcast/form/StaffDropDownList";
 
 export {
   AuthForm,
@@ -41,6 +44,8 @@ export {
   TextArea,
   PodcastFormButton,
   DragDropFile,
-  AudioThumbnail
+  AudioThumbnail,
+  StaffDropDownList,
+  StaffDropDownItem
 };
-export type { ErrorListType, NonFieldErrors, NavRouteType };
+export type { ErrorListType, NonFieldErrors, NavRouteType, StaffDropDownContextType };

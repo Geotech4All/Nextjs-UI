@@ -1,12 +1,16 @@
 import React from "react";
 
 interface PodcastButtonProps {
-  value?: string;
+  children?: React.ReactNode;
 }
 
 const PodcastFormButton: React.FC<PodcastButtonProps> = (props) => {
-  const { value } = props;
-  return <button value={value} type="submit" />;
+  const { children } = props;
+  return (
+    <button className="flex p-1 px-4 items-center justify-center bg-ui-pink-40 rounded" type="submit">
+      {children}
+    </button>
+  );
 };
 
 export default PodcastFormButton;

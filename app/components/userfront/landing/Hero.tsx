@@ -14,10 +14,10 @@ const Hero: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-2xl md:text-7xl flex flex-col gap-3"
+            className="text-6xl md:text-7xl flex flex-col gap-3"
           >
             Geology meets <br />
-            <strong className="font-extrabold text-2xl md:text-8xl">Technology</strong>
+            <strong className="font-extrabold text-[3rem] md:text-8xl">Technology</strong>
           </motion.h1>
         </div>
       </div>

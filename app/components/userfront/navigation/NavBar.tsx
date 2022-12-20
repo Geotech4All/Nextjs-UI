@@ -1,11 +1,15 @@
 import { MobileNav, NavLink } from "@app/components";
+import { useMediaQuery } from "react-responsive";
 import { isInViewPort } from "@utils/ui/helpers";
 import React from "react";
 import { userFrontRoutes } from "./userFrontRoutes";
 
 const NavBar: React.FC = () => {
   const [isFixed, setIsFixed] = React.useState(false);
-  const [isSmallScreen, setIsSmallScreen] = React.useState(true);
+
+  const isLargeScreen = useMediaQuery({
+    query: "(min-width: 950px)"
+  });
 
   const handleFixing = (): void => {
     const heroExists = isInViewPort("hero-section");
@@ -16,21 +20,14 @@ const NavBar: React.FC = () => {
     }
   };
 
-  const handleScreenSize = (): void => {
-    //
-  };
-
   React.useEffect(() => {
-    document.addEventListener("resize", handleScreenSize);
     document.addEventListener("scroll", handleFixing);
     return () => {
       document.removeEventListener("scroll", handleFixing);
-      document.removeEventListener("resize", handleScreenSize);
     };
   }, []);
 
-  console.log(isSmallScreen);
-  if (isSmallScreen) {
+  if (!isLargeScreen) {
     return <MobileNav />;
   }
   return (

@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
     <BgImage alt="seismic data" src="/images/geo-tech.jpg">
       <div
         id="hero-section"
-        className="w-full min-h-[35rem] p-3 md:p-12 flex items-end text-white relative"
+        className="w-full min-h-[35rem] pb-10 p-3 md:p-12 flex items-end text-white relative"
       >
         <div className="w-full flex-1">
           <motion.h1

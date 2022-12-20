@@ -20,6 +20,7 @@ import SideBarItems from "@app/components/common/sidebar/SideBarItems";
 import type { NavRouteType } from "@app/components/common/sidebar/navRoutes";
 import SideBar from "@app/components/common/sidebar/SideBar";
 import NavLink from "@app/components/common/links/NavLink";
+import SocialFooter from "@app/components/common/social/SocialFooter";
 import navRotues from "@app/components/common/sidebar/navRoutes";
 
 // Admin
@@ -38,7 +39,9 @@ import MobileNav from "@app/components/userfront/navigation/MobileNav";
 import Features from "@app/components/userfront/landing/Features";
 import Feature from "@app/components/userfront/landing/Feature";
 import type { FeatureProps } from "@app/components/userfront/landing/Features";
-import { features } from "@app/components/userfront/landing/features";
+import { features, socials } from "@app/components/userfront/landing/info";
+import type { SocialType } from "@app/components/userfront/landing/info";
+import Footer from "@app/components/userfront/landing/Fotter";
 
 export {
   AuthForm,
@@ -72,6 +75,16 @@ export {
   MobileNav,
   Features,
   Feature,
-  features
+  features,
+  Footer,
+  socials,
+  SocialFooter
 };
-export type { ErrorListType, NonFieldErrors, NavRouteType, StaffDropDownContextType, FeatureProps };
+export type {
+  ErrorListType,
+  NonFieldErrors,
+  NavRouteType,
+  StaffDropDownContextType,
+  FeatureProps,
+  SocialType
+};

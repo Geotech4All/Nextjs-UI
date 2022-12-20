@@ -6,7 +6,7 @@ const SocialFooter: React.FC<SocialType> = (props) => {
   const { social, icon: Icon, link, name } = props;
   return (
     <Link className="flex gap-1 transition-all items-center group" href={link}>
-      <span className="pr-2 group-hover:text-black transition-all">
+      <span className="pr-2 group-active:text-black group-hover:text-black transition-all">
         <Icon />
       </span>
       <p>{social}</p>

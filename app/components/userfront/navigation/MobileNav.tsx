@@ -54,9 +54,9 @@ const MobileNav: React.FC = () => {
             animate={{ translateX: 0 }}
             exit={{ translateX: "-100%" }}
             key={Math.random()}
-            className="flex flex-col fixed top-0 bg-white w-[20rem] h-screen shadow-lg shadow-black"
+            className="flex flex-col text-lg md:text-base fixed top-0 bg-white w-[20rem] h-screen shadow-lg shadow-black"
           >
-            <div>
+            <div className="px-7">
               <p className="p-5">Me NavBar</p>
             </div>
             <div className="flex flex-col">

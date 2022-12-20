@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { Header, NavBar } from "@app/components";
+import { Features, Header, NavBar } from "@app/components";
 
 const Home: NextPage = () => {
   return (
@@ -17,9 +17,7 @@ const Home: NextPage = () => {
       <main aria-label="Geology meets technology">
         <Header />
         <NavBar />
-        <h1 className={styles.title}>
-          Welcome to <a href="#">GeoTech4All</a>
-        </h1>
+        <Features />
 
         <p className={styles.description}>
           Get started by editing <code className={styles.code}>pages/index.tsx</code>

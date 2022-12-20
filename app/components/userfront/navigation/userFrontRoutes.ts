@@ -18,6 +18,10 @@ export const userFrontRoutes: UserRoute[] = [
   },
   {
     path: "#",
+    name: "Services"
+  },
+  {
+    path: "#",
     name: "Gallery"
   },
   {

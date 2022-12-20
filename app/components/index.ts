@@ -35,6 +35,10 @@ import Header from "@app/components/userfront/landing/Header";
 import Hero from "@app/components/userfront/landing/Hero";
 import NavBar from "@app/components/userfront/navigation/NavBar";
 import MobileNav from "@app/components/userfront/navigation/MobileNav";
+import Features from "@app/components/userfront/landing/Features";
+import Feature from "@app/components/userfront/landing/Feature";
+import type { FeatureProps } from "@app/components/userfront/landing/Features";
+import { features } from "@app/components/userfront/landing/features";
 
 export {
   AuthForm,
@@ -65,6 +69,9 @@ export {
   Hero,
   BgImage,
   NavBar,
-  MobileNav
+  MobileNav,
+  Features,
+  Feature,
+  features
 };
-export type { ErrorListType, NonFieldErrors, NavRouteType, StaffDropDownContextType };
+export type { ErrorListType, NonFieldErrors, NavRouteType, StaffDropDownContextType, FeatureProps };

@@ -1,6 +1,7 @@
 import type { FeatureProps } from "@app/components";
 import { IconType } from "react-icons";
-import { BsLinkedin } from "react-icons/bs";
+import { BsLinkedin, BsTwitter } from "react-icons/bs";
+import { TbBrandMeta } from "react-icons/tb";
 
 export const features: FeatureProps[] = [
   {
@@ -15,14 +16,22 @@ export interface SocialType {
   link: string;
   social: string;
   icon: IconType;
-  name?: string;
 }
 
 export const socials: SocialType[] = [
   {
     link: "https://www.linkedin.com/company/geotech4all/",
     social: "LinkedIn",
-    icon: BsLinkedin,
-    name: "GEOTECH4ALL"
+    icon: BsLinkedin
+  },
+  {
+    link: "https://www.facebook.com/Geotech4all/",
+    social: "Meta",
+    icon: TbBrandMeta
+  },
+  {
+    link: "https://lnkd.in/d82ZNsDr",
+    social: "Twitter",
+    icon: BsTwitter
   }
 ];

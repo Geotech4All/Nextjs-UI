@@ -1,7 +1,8 @@
 import React from "react";
-import { AuthLayout } from "@app/layouts";
+import { AuthLayout, NavLayout } from "@app/layouts";
 import { SideBar } from "@app/components";
 
+// returns a page with admin privilages and a sidebar
 export const getAdminLayout = (page: React.ReactElement): React.ReactNode => {
   return (
     <AuthLayout>
@@ -9,4 +10,8 @@ export const getAdminLayout = (page: React.ReactElement): React.ReactNode => {
       {page}
     </AuthLayout>
   );
+};
+
+export const getNavLayout = (page: React.ReactElement): React.ReactNode => {
+  return <NavLayout>{page}</NavLayout>;
 };

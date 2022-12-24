@@ -5,15 +5,15 @@ interface UserRoute {
 
 export const userFrontRoutes: UserRoute[] = [
   {
-    path: "#",
+    path: "/",
     name: "Home"
   },
   {
-    path: "#",
+    path: "/podcast",
     name: "Podcast"
   },
   {
-    path: "#",
+    path: "/blog",
     name: "Blog"
   },
   {

@@ -1,7 +1,7 @@
 import { useAppSelector } from "@utils/store/hooks";
 import { selectPodcasts } from "@utils/store/slices/podcastListSlice";
 import React from "react";
-import PodcastCard from "./PodcastCard";
+import { PodcastCard } from "@app/components";
 
 const RecentPodcasts: React.FC = () => {
   const podcasts = useAppSelector(selectPodcasts);

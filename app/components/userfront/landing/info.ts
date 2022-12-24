@@ -3,12 +3,25 @@ import { IconType } from "react-icons";
 import { BsLinkedin, BsTwitter } from "react-icons/bs";
 import { TbBrandMeta } from "react-icons/tb";
 
+// Note: if you are adding a call to action (cta) structure the feat in a way that the
+// cta fits at the end of the feat. See the examples bellow.
 export const features: FeatureProps[] = [
   {
-    feat: "Find out the latest inovations in the world of geology and tech via our Podcasts",
+    // the cta (Podcast fits at the end of the sentence)
+    feat: "Find out the latest inovations in the world of geology and tech via our",
     position: "left",
     imageAlt: "two people hosting a podcast",
-    imageSrc: "/images/podcasting.svg"
+    imageSrc: "/images/podcasting.svg",
+    cta: "Podcasts",
+    ctaPath: "/podcast"
+  },
+  {
+    feat: "Are you a geolologist or geo-ethusiast? Learn more about Geology by reading our",
+    position: "right",
+    imageAlt: "Blogging lady",
+    imageSrc: "/images/Blogging.svg",
+    cta: "Blogs",
+    ctaPath: "/blog"
   }
 ];
 

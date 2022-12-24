@@ -1,13 +1,13 @@
 import React from "react";
 import { PageWaterLoader, RecentPodcasts } from "@app/components";
 import { getAdminLayout } from "@app/layouts/hooks";
-import { useAllPodcasts } from "@utils/graphql/hooks/podcast";
+import { useRecentPodcasts } from "@utils/graphql/hooks/podcast";
 import { NextPageWithLayout } from "pages/_app";
 import { useAppDispatch } from "@utils/store/hooks";
 import { setPocastList } from "@utils/store/slices/podcastListSlice";
 
 const AdminDashBoard: NextPageWithLayout = () => {
-  const { loading, data } = useAllPodcasts();
+  const { loading, data } = useRecentPodcasts();
   const dispatch = useAppDispatch();
   React.useEffect(() => {
     if (data !== null && data !== undefined) {

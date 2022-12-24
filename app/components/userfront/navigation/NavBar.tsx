@@ -4,10 +4,15 @@ import { isInViewPort } from "@utils/ui/helpers";
 import React from "react";
 import { userFrontRoutes } from "./userFrontRoutes";
 
-const NavBar: React.FC = () => {
+interface NavBarProps {
+  fixed?: boolean;
+}
+const NavBar: React.FC<NavBarProps> = (props) => {
+  const { fixed = false } = props;
   const [isFixed, setIsFixed] = React.useState(false);
+  const [isLargeScreen, setIsLargeScreen] = React.useState(false);
 
-  const isLargeScreen = useMediaQuery({
+  const screen = useMediaQuery({
     query: "(min-width: 950px)"
   });
 
@@ -21,6 +26,10 @@ const NavBar: React.FC = () => {
   };
 
   React.useEffect(() => {
+    setIsLargeScreen(screen);
+  }, [screen]);
+
+  React.useEffect(() => {
     document.addEventListener("scroll", handleFixing);
     return () => {
       document.removeEventListener("scroll", handleFixing);
@@ -32,8 +41,8 @@ const NavBar: React.FC = () => {
   }
   return (
     <nav
-      className={`${isFixed ? "fixed top-0" : "relative"} bg-white
-      w-screen shadow-lg flex justify-between shadow-black/30`}
+      className={`${isFixed || fixed ? "fixed top-0" : "relative"} bg-white
+      w-screen shadow-lg flex justify-between shadow-black/20`}
     >
       <div>
         <p className="p-5">Me NavBar</p>

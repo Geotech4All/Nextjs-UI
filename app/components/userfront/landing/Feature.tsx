@@ -1,8 +1,9 @@
 import type { FeatureProps } from "@app/components";
+import Link from "next/link";
 import React from "react";
 
 const Feature: React.FC<FeatureProps> = (props) => {
-  const { feat, imageSrc, position, imageAlt } = props;
+  const { feat, imageSrc, position, imageAlt, cta, ctaPath } = props;
   return (
     <div
       className={`
@@ -13,7 +14,17 @@ const Feature: React.FC<FeatureProps> = (props) => {
       <div className="flex-[1.1] items-center w-full justify-center h-1/5 flex">
         <img className="h-1/2" src={imageSrc} alt={imageAlt} />
       </div>
-      <p className="flex-1 text-xl">{feat}</p>
+      <div className="flex-1 text-xl">
+        {feat + " "}
+        {cta !== null && (
+          <Link
+            className="text-blue-600 active:text-purple-500 hover:text-purple-500"
+            href={ctaPath ?? "#"}
+          >
+            {cta}
+          </Link>
+        )}
+      </div>
     </div>
   );
 };

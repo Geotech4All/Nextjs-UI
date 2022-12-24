@@ -4,13 +4,22 @@ import type {
   Maybe,
   StaffType,
   PodcastCreateUpdateMutation,
-  MutationCreateUpdatePodcastArgs
+  MutationCreateUpdatePodcastArgs,
+  QueryAllPodcastsArgs
 } from "@utils/graphql/codegen/graphql";
 import { CREATE_UPDATE_PODCAST } from "@utils/graphql/queries/Mutations";
-import { ALL_PODCASTS, STAFF_LIST } from "@utils/graphql/queries/Queries";
+import { ALL_PODCASTS, STAFF_LIST, RECENT_PODCASTS } from "@utils/graphql/queries/Queries";
 
-export const useAllPodcasts = (): QueryResult<{ allPodcasts: PodcastTypeConnection }> => {
-  return useQuery<{ allPodcasts: PodcastTypeConnection }>(ALL_PODCASTS);
+export const useRecentPodcasts = (): QueryResult<{ allPodcasts: PodcastTypeConnection }> => {
+  return useQuery<{ allPodcasts: PodcastTypeConnection }>(RECENT_PODCASTS);
+};
+
+export const useAllPodcasts = (
+  args?: QueryAllPodcastsArgs
+): QueryResult<{ allPodcasts: PodcastTypeConnection }> => {
+  return useQuery<{ allPodcasts: PodcastTypeConnection }, QueryAllPodcastsArgs>(ALL_PODCASTS, {
+    variables: { ...args }
+  });
 };
 
 export const useStaffList = (): QueryResult<{ staffList: Maybe<StaffType[]> }> => {

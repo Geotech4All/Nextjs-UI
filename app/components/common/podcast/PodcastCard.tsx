@@ -3,8 +3,8 @@ import { bgColors } from "./podcastUtils";
 import type { BgCollor } from "./podcastUtils";
 import { PodcastTypeEdge } from "@utils/graphql/codegen/graphql";
 import { BsCalendar3 } from "react-icons/bs";
-import { useAppDispatch } from "@utils/store/hooks";
-import { setPlayer } from "@utils/store/slices/playerSlice";
+import { useAppDispatch, useAppSelector } from "@utils/store/hooks";
+import { selectPlayer, setPlayer } from "@utils/store/slices/playerSlice";
 
 interface PodcastCardProps {
   podcast: PodcastTypeEdge;
@@ -14,15 +14,21 @@ const PodcastCard: React.FC<PodcastCardProps> = (props) => {
   const dateAdded = podcast.node?.dateAdded as string;
   const date = dateAdded.split("T")[0];
   const color = selectRandom<BgCollor>(bgColors);
+  const podcastCardRef = React.useRef() as React.MutableRefObject<HTMLElement>;
 
   const dispatch = useAppDispatch();
+  const player = useAppSelector(selectPlayer);
 
-  const clickHanler: React.MouseEventHandler = () => {
-    dispatch(setPlayer({ src: podcast.node?.audio ?? "", color }));
-  };
+  const clickHanler = React.useCallback(() => {
+    if (player.colorSet !== true) {
+      dispatch(setPlayer({ color, colorSet: true }));
+    }
+    dispatch(setPlayer({ src: podcast.node?.audio ?? "", playing: true }));
+  }, [podcastCardRef.current]);
 
   return (
     <article
+      ref={podcastCardRef}
       onClick={clickHanler}
       className={`
       hover:scale-105 transition-all hover:shadow-md hover:shadow-black/50

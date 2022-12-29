@@ -5,6 +5,8 @@ import { RootState } from "@store/config";
 interface PlayerType {
   src?: string;
   color?: BgCollor;
+  playing?: boolean;
+  colorSet?: boolean;
 }
 
 const playerSlice = createSlice({

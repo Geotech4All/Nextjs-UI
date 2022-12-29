@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { useAppSelector } from "@utils/store/hooks";
 import { selectPlayer } from "@utils/store/slices/playerSlice";
 import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
@@ -8,7 +9,7 @@ const MusicPlayer = React.forwardRef<HTMLDivElement>((props, ref) => {
   const player = useAppSelector(selectPlayer);
   const audioRef = React.useRef() as React.MutableRefObject<HTMLAudioElement>;
   const [audio, setAudio] = React.useState({
-    duration: "0.0"
+    duration: "0:00"
   });
 
   function audioPlayHandler(): void {
@@ -23,16 +24,21 @@ const MusicPlayer = React.forwardRef<HTMLDivElement>((props, ref) => {
 
   React.useEffect(() => {
     console.log(audioRef.current);
-    const duration = (audioRef.current.duration / 60).toFixed(2);
-    setAudio((curr) => ({ ...curr, duration }));
-  }, []);
+    if (audioRef.current.duration > 0) {
+      const durr = (audioRef.current.duration / 60).toFixed(2);
+      const duration = durr.split(".").join(":");
+      setAudio((curr) => ({ ...curr, duration }));
+    }
+  }, [audioRef.current]);
 
   return (
-    <div
+    <motion.div
+      initial={{ bottom: -100 }}
+      animate={{ bottom: 5, transition: { duration: 0.3 } }}
       className={`${
         player.color?.lighter ?? ""
       } p-3 fixed bottom-2 left-1/2 shadow-md shadow-black/80
-      flex items-center gap-4
+      flex items-center gap-4 transition-all
       -translate-x-1/2 w-[97vw] sm:max-w-[90vw] rounded-2xl`}
       ref={ref}
     >
@@ -48,7 +54,7 @@ const MusicPlayer = React.forwardRef<HTMLDivElement>((props, ref) => {
         <time>{audio.duration}</time>
       </div>
       <audio className="hiden" ref={audioRef} src="/music/Toxic.mp3" />
-    </div>
+    </motion.div>
   );
 });
 

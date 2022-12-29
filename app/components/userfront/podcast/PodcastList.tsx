@@ -1,10 +1,12 @@
 import { MusicPlayer, PodcastCard } from "@app/components";
 import { useAppSelector } from "@utils/store/hooks";
+import { selectPlayer } from "@utils/store/slices/playerSlice";
 import { selectPodcasts } from "@utils/store/slices/podcastListSlice";
 import React from "react";
 
 const PodcastList: React.FC = () => {
   const podcasts = useAppSelector(selectPodcasts);
+  const player = useAppSelector(selectPlayer);
 
   return (
     <>
@@ -13,7 +15,7 @@ const PodcastList: React.FC = () => {
           <PodcastCard key={Math.random()} podcast={podcast} />
         ))}
       </ul>
-      <MusicPlayer />
+      {player.playing === true && <MusicPlayer />}
     </>
   );
 };
